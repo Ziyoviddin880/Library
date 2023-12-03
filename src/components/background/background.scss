@@ -1,0 +1,16 @@
+.fixed-box {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #f8f8f8;
+  z-index: -1;
+  div {
+    width: 100vw;
+    border-top-right-radius: 50px;
+    transform: rotateZ(45deg) translateX(-62%);
+    height: 200vh;
+    background-color: #333333;
+  }
+}

@@ -1,0 +1,111 @@
+.d-none {
+  display: none;
+}
+.addBook-window {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  .box {
+    background-color: white;
+    padding: 24px 28px;
+    border-radius: 12px;
+    width: 25%;
+    z-index: 1;
+    .title-cancel {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+      .title {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 25px;
+        color: #151515;
+      }
+      .cancel {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1.6px solid #151515;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        i {
+          font-weight: bold;
+          font-size: 12px;
+        }
+      }
+    }
+    form {
+      label {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16.8px;
+        color: #151515;
+      }
+      div:not(:last-child) {
+        border: 1px solid #ebebeb;
+        display: flex;
+        gap: 16px;
+        border-radius: 6px;
+        width: 100%;
+        padding: 14px 16px;
+        margin-top: 4px;
+        margin-bottom: 16px;
+        img {
+          opacity: 0.28;
+        }
+        input {
+          font-weight: 400;
+
+          font-size: 16px;
+          line-height: 19.2px;
+          color: #151515;
+          width: 100%;
+          border: none;
+          outline: none;
+          &::placeholder {
+            opacity: 0.28;
+          }
+        }
+      }
+      div:last-child {
+        display: flex;
+        justify-content: space-between;
+      }
+      button {
+        padding: 10px 50px;
+        text-align: center;
+        border-radius: 4px;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+      button:last-child {
+        background-color: #6200ee;
+        color: #fefefe;
+        border: none;
+      }
+      button:first-child {
+        background-color: #fefefe;
+        color: #6200ee;
+        border: 1px solid #6200ee;
+      }
+    }
+  }
+  .close-box {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+  }
+}

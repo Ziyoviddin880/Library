@@ -1,0 +1,96 @@
+.sign-window {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  .sign {
+    max-width: 25%;
+    background-color: white;
+    border-radius: 12px;
+    padding: 40px 28px;
+    .sign-title {
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 45px;
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .account {
+      border: 1px solid #151515;
+      border-radius: 4px;
+      padding: 10px;
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 16px;
+      span {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        color: #151515;
+      }
+    }
+    .or-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      div {
+        height: 1px;
+        width: 40%;
+        background-color: #151515;
+      }
+      span {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+        color: #24272c;
+      }
+    }
+
+    label {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 16.8px;
+      color: #151515;
+    }
+    input {
+      padding: 14px 16px;
+      border: 1px solid #ebebeb;
+      border-radius: 6px;
+      width: 100%;
+      margin-top: 4px;
+      margin-bottom: 16px;
+      &:focus-visible {
+        // border: 1px solid #151515;
+        outline: 1px solid #151515;
+      }
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+      background-color: #6200ee;
+      border-radius: 4px;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 500;
+      color: #fefefe;
+      border: none;
+      cursor: pointer;
+    }
+    .link {
+      margin-top: 12px;
+      text-align: center;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 16.8px;
+      color: #333333;
+      a {
+        color: #6200ee;
+        text-decoration: none;
+      }
+    }
+  }
+}

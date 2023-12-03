@@ -1,0 +1,197 @@
+.home-page {
+  header {
+    nav {
+      padding: 1.2rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .logo-search {
+        display: flex;
+        align-items: center;
+
+        .search {
+          margin-left: 2.4rem;
+          padding: 0.5rem 2.6rem;
+          border-radius: 0.6rem;
+          transition: all 0.3s;
+          width: 30.99rem;
+          position: relative;
+          display: flex;
+          align-items: center;
+
+          &:hover {
+            background-color: #fefefe;
+            i {
+              &:first-child {
+                color: #151515;
+              }
+              &:last-child {
+                display: block;
+              }
+            }
+          }
+          i {
+            font-size: 1.8rem;
+            &:first-child {
+              color: #fefefe;
+              margin-right: 1rem;
+            }
+            &:last-child {
+              position: absolute;
+              right: 0.5rem;
+              display: none;
+              cursor: pointer;
+            }
+          }
+          input {
+            background-color: transparent;
+            border: none;
+            width: 100%;
+            &:focus-visible {
+              outline: none;
+            }
+          }
+          input:focus-visible + i {
+            display: block;
+          }
+        }
+        .searchColor {
+          background-color: #fefefe;
+          i {
+            &:first-child {
+              color: #151515;
+            }
+          }
+        }
+      }
+      .user {
+        display: flex;
+        align-items: center;
+        .user-logo {
+          margin-left: 2.4rem;
+        }
+      }
+    }
+  }
+  .books {
+    display: flex;
+    justify-content: space-between;
+    .title {
+      font-size: 3.6rem;
+      font-weight: 700;
+      color: #fefefe;
+      span {
+        color: #6200ee;
+      }
+    }
+    .addBook {
+      input {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: #151515;
+        padding: 12px 16px;
+        border: 1px solid #ebebeb;
+        border-radius: 6px;
+        margin-right: 24px;
+        &:focus-visible {
+          outline: none;
+        }
+      }
+      button {
+        padding: 10px 24px;
+        text-align: center;
+        background-color: #6200ee;
+        border-radius: 4px;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 500;
+        color: #fefefe;
+        border: none;
+        cursor: pointer;
+        span {
+          margin-right: 12px;
+        }
+      }
+    }
+  }
+  .task {
+    font-size: 2rem;
+    color: #fefefe;
+    opacity: 0.8;
+    margin: 1.2rem 0 3.6rem 0;
+  }
+
+  .books-table {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5%;
+    .book-item {
+      position: relative;
+      width: 30%;
+      background-color: white;
+      padding: 3.2rem;
+      border-radius: 1.2rem;
+      box-shadow: 0px 1px 25px 1px rgba(34, 60, 80, 0.2);
+      .delete-book,
+      .edit-book {
+        width: 3.2rem;
+        height: 3.2rem;
+        padding: 0.8rem;
+        position: absolute;
+        right: -3.2rem;
+        display: none;
+        cursor: pointer;
+        i {
+          color: white;
+          font-size: 1.6rem;
+        }
+      }
+      &:hover .delete-book,
+      &:hover .edit-book {
+        display: block;
+      }
+      .delete-book {
+        top: 1.6rem;
+        background-color: #ff4d4f;
+        border-radius: 6px 6px 6px 0px;
+      }
+      .edit-book {
+        top: 5rem;
+        background-color: #6200ee;
+        border-radius: 0px 6px 6px 6px;
+      }
+      .book-title {
+        font-weight: 600;
+        font-size: 1.6rem;
+        color: #151515;
+        line-height: 1.95rem;
+      }
+      .book-info {
+        margin: 0.6rem 0 1.6rem 0;
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: #333333;
+        line-height: 2.1rem;
+      }
+      .book_year-page {
+        display: flex;
+        justify-content: space-between;
+        .book-year {
+          font-size: 1.4rem;
+          font-weight: 400;
+          line-height: 1.5rem;
+          color: #333333;
+        }
+        .book-page {
+          background-color: #efe6fd;
+          color: #9654f4;
+          font-size: 1.2rem;
+          line-height: 1.5rem;
+          border-radius: 1rem;
+          padding: 0.2rem 1.2rem;
+        }
+      }
+    }
+  }
+}
