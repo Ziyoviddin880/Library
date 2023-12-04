@@ -10,7 +10,7 @@ function AddBook({ setBookBox, bookBox, edited, setEdited }) {
       <div className="box">
         <div className="title-cancel">
           <div className="title">
-            {edited == 1 ? "Edit Book" : "Create a book"}
+            {edited === 1 ? "Edit Book" : "Create a book"}
           </div>
           <div
             className="cancel"

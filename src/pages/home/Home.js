@@ -9,7 +9,7 @@ function Home({ user }) {
     if (!user.length) {
       navigate("/signup");
     }
-  }, []);
+  }, [navigate, user.length]);
   const [searchColor, setSearchColor] = useState(false);
   const [bookBox, setBookBox] = useState(false);
   const [edited, setEdited] = useState(0);
