@@ -1,10 +1,18 @@
 import "./home.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AddBook from "../../components/addBook/AddBook";
+import { useNavigate } from "react-router-dom";
 
-function Home() {
+function Home({ user }) {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!user.length) {
+      navigate("/signup");
+    }
+  }, []);
   const [searchColor, setSearchColor] = useState(false);
   const [bookBox, setBookBox] = useState(false);
+  const [edited, setEdited] = useState(0);
   return (
     <div className="home-page">
       <header>
@@ -30,7 +38,9 @@ function Home() {
               <div className="bell">
                 <img src="images/bell.svg" alt="Bell " />
               </div>
-              <div className="user-logo">User</div>
+              <div className="user-logo">
+                {user.length ? user[0].data.name : ""}
+              </div>
             </div>
           </nav>
         </div>
@@ -54,7 +64,13 @@ function Home() {
             <div className="delete-book">
               <i className="fa-solid fa-trash"></i>
             </div>
-            <div className="edit-book">
+            <div
+              className="edit-book"
+              onClick={() => {
+                setBookBox(true);
+                setEdited(1);
+              }}
+            >
               <i className="fa-solid fa-pen"></i>
             </div>
             <div className="book-title">Raspberry Pi User Guide</div>
@@ -69,8 +85,21 @@ function Home() {
             </div>
           </div>
         </div>
+        <div className="information">
+          Hurmatli ish beruvchi! Berilgan API bo'yicha faqat SIGNUP qilsa
+          bo'ladi. Kitob qo'shishda Post so'rov jo'natganda kitob ma'lumotlarini
+          berib yuborish imkoniyati APIda mavjud emas. Shu boisdan kitob mavjud
+          bo'lmagandan so'ng keyingi qadamlar kitobni o'chirish, kitobni
+          tahrirlash, umumiy hamma kitoblarni ko'rish imkoniyati yo'q.
+        </div>
       </div>
-      <AddBook setBookBox={setBookBox} bookBox={bookBox} />
+
+      <AddBook
+        setEdited={setEdited}
+        edited={edited}
+        setBookBox={setBookBox}
+        bookBox={bookBox}
+      />
     </div>
   );
 }

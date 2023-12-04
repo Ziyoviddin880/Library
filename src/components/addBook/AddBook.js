@@ -1,17 +1,28 @@
 import "./addBook.scss";
 
-function AddBook({ setBookBox, bookBox }) {
+function AddBook({ setBookBox, bookBox, edited, setEdited }) {
+  const myBook = (e) => {
+    e.preventDefault();
+  };
   return (
     <div className={bookBox ? "addBook-window" : "d-none"}>
       <div className="close-box" onClick={() => setBookBox(false)}></div>
       <div className="box">
         <div className="title-cancel">
-          <div className="title">Create a book</div>
-          <div className="cancel" onClick={() => setBookBox(false)}>
+          <div className="title">
+            {edited == 1 ? "Edit Book" : "Create a book"}
+          </div>
+          <div
+            className="cancel"
+            onClick={() => {
+              setBookBox(false);
+              setEdited(0);
+            }}
+          >
             <i className="fa-solid fa-xmark"></i>
           </div>
         </div>
-        <form>
+        <form onSubmit={myBook}>
           <label htmlFor="title">Title</label>
           <div>
             <input
@@ -60,7 +71,13 @@ function AddBook({ setBookBox, bookBox }) {
             />
           </div>
           <div>
-            <button onClick={() => setBookBox(false)} type="button">
+            <button
+              onClick={() => {
+                setBookBox(false);
+                setEdited(0);
+              }}
+              type="button"
+            >
               Close
             </button>
             <button type="submit">Submit</button>

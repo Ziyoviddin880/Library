@@ -1,6 +1,51 @@
 import "./signup.scss";
-import { NavLink } from "react-router-dom";
-function Signup() {
+import { NavLink, useNavigate } from "react-router-dom";
+import { useState } from "react";
+
+function Signup({ setUser }) {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [err, setErr] = useState(null);
+  const navigate = useNavigate();
+
+  const register = (e) => {
+    e.preventDefault();
+    const newData = {
+      name,
+      email,
+      key: email,
+      secret: password,
+    };
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newData),
+    };
+    fetch("https://0001.uz/signup", options)
+      .then((res) => {
+        console.log(res);
+        if (!res.ok) {
+          throw new Error("bu Email ro'yxatdan o'tkazilgan");
+        }
+        return res.json();
+      })
+      .then((response) => {
+        console.log(response);
+        setUser([response]);
+        navigate("/");
+        setName("");
+        setEmail("");
+        setPassword("");
+        setErr(null);
+      })
+      .catch((err) => {
+        setErr(err);
+      });
+  };
+
   return (
     <div className="sign-window">
       <div className="sign">
@@ -18,29 +63,36 @@ function Signup() {
           <span>OR</span>
           <div></div>
         </div>
-        <form>
+        <form onSubmit={register}>
           <label htmlFor="firstName">Your name</label> <br />
           <input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             type="text"
             name="firstName"
             id="firstName"
             placeholder="Enter your name"
           />
           <label htmlFor="email">Your Email</label>
+          {err && <h1>Bunday email ro'yxatdan o'tkazilgan</h1>}
           <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             type="email"
             name="email"
             id="email"
             placeholder="Enter your email"
           />
-          <label htmlFor="userName">Your Username</label>
+          <label htmlFor="password">Your Password</label>
           <input
-            type="text"
-            name="userName"
-            id="userName"
-            placeholder="Enter your username"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Enter your password"
           />
-          <button>Button</button>
+          <button type="submit">Button</button>
         </form>
 
         <div className="link">
